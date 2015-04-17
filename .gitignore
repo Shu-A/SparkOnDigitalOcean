@@ -35,4 +35,4 @@ build/
 .rvmrc
 
 # SSH key for DigitalOcean
-id_rsa
+.ssh
