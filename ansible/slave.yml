@@ -1,0 +1,7 @@
+- hosts: slave
+  suso: yes
+  roles:
+    - common
+    - hadoop_slave
+    - spark_slave
+

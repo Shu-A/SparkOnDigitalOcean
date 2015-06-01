@@ -1,0 +1,7 @@
+- hosts: master
+  suso: yes
+  roles:
+    - common
+    - hadoop_master
+    - spark_master
+

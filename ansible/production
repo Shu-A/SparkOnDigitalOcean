@@ -1,0 +1,12 @@
+[master]
+spark-test0
+
+[slave]
+spark-test1
+spark-test2
+spark-test3
+
+[production:children]
+master
+slave
+

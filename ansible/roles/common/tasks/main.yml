@@ -1,0 +1,7 @@
+- name: Disable iptables
+  service: name=iptables state=stopped enabled=no
+
+- name: Git install
+  yum: name=git state=latest
+
+
