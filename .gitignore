@@ -36,3 +36,7 @@ build/
 
 # SSH key for DigitalOcean
 .ssh
+
+# Vagrant
+.vagrant
+
