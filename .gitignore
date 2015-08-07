@@ -39,4 +39,4 @@ build/
 
 # Vagrant
 .vagrant
-
+.tmp

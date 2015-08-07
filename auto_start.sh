@@ -4,4 +4,5 @@ vagrant up --provide=digital_ocean
 
 vagrant ssh >> ~/.ssh/config
 
-ansible-playbook 
+ansible-playbook -i ansible/production ansible/site.yml
+

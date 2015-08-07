@@ -1,0 +1,36 @@
+#- name: Get hadoop binary packege
+#  unarchive: src=http://ftp.jaist.ac.jp/pub/apache/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz dest=/opt copy=no
+
+- name: Get hadoop binary packege
+  get_url: url=http://ftp.riken.jp/net/apache/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz dest=/tmp/hadoop-2.7.1.tar.gz
+
+- name: Ungzip hadoop binary package
+  shell: tar xzvf /tmp/hadoop-2.7.1.tar.gz -C /opt
+
+- name:  Change modify to "hadoop:hadoop" on /opt/hadoop*
+  file: path=/opt/hadoop-2.7.1 owner=hadoop group=hadoop recurse=yes
+
+- name: Set environment variable of HADOOP_HOME, JAVA_HOME, PATH by $HOME/.bashrc
+  template: src=hadoop_bashrc.j2 dest=/home/hadoop/.bashrc
+
+- name: Deploy core-site.xml file
+  template: src=core-site.xml.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/core-site.xml
+
+- name: Deploy mapred-site.xml file
+  template: src=mapred-site.xml.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/mapred-site.xml
+
+- name: Deploy yarn-site.xml file
+  template: src=yarn-site.xml.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/yarn-site.xml
+
+- name: Deploy hdfs-site.xml file
+  template: src=hdfs-site.xml.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/hdfs-site.xml
+
+- name: Deploy hadoop-env.sh file
+  template: src=hadoop-env.sh.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/hadoop-env.sh
+
+- name: Deploy yarn-env.sh file
+  template: src=yarn-env.sh.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/yarn-env.sh
+
+- name: Deploy slaves file
+  template: src=slaves.j2 dest=/opt/hadoop-2.7.1/etc/hadoop/slaves
+
