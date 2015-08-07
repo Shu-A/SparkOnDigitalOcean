@@ -1,0 +1,7 @@
+- name: Format HDFS
+  shell: sudo -u hadoop -i env /opt/hadoop-2.7.1/bin/hdfs namenode -format -force
+
+# It needs started namenode process
+#- name: Make directory for hadoop user on HDFS
+#  shell: sudo -u hadoop -i env /opt/hadoop-2.7.1/bin/hdfs dfs -mkdir -p /user/hadoop
+

@@ -1,10 +1,10 @@
 VAGRANTFILE_API_VERSION = "2"
-
-Dotenv.load
-
+ 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box       = "CentOS6.5"
-
+ 
+    config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box"
+    config.vm.box = "CentOS-6.5-x86"
+ 
     (0..3).each do |num|
         config.vm.define "spark-test#{num}" do |node|
             node.vm.provider :digital_ocean do |provider, override|
@@ -20,6 +20,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             end
         end
     end
-
 end
 

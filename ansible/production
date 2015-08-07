@@ -1,10 +1,10 @@
 [master]
-spark-test0
+hdp0
 
 [slave]
-spark-test1
-spark-test2
-spark-test3
+hdp1
+hdp2
+hdp3
 
 [production:children]
 master
