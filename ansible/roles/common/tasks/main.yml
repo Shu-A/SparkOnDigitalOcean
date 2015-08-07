@@ -1,7 +1,17 @@
+- name: Deploy hosts file
+  template: src=hosts.j2 dest=/etc/hosts mode=644
+
 - name: Disable iptables
   service: name=iptables state=stopped enabled=no
 
 - name: Git install
-  yum: name=git state=latest
+  yum: name=git state=present
 
+- name: Open JDK 8 install
+  yum: name=java-1.7.0-openjdk.x86_64,java-1.7.0-openjdk-devel.x86_64 state=present
 
+- name: hadoop group add
+  group: name=hadoop state=present
+
+- name: hadoop user add
+  user: name=hadoop group=hadoop home=/home/hadoop password=$1pf6FNycXs9U state=present
