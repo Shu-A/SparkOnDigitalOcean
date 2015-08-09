@@ -1,10 +1,10 @@
 [master]
-hdp0
+hadoopnode0
 
 [slave]
-hdp1
-hdp2
-hdp3
+hadoopnode1
+hadoopnode2
+hadoopnode3
 
 [production:children]
 master
